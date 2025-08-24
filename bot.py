@@ -43,9 +43,69 @@ GEAR_RARITY = {
 # =======================
 EGG_RARITY = {
     "Common": ["Common Egg", "Common Summer Egg"],
-    "Rare": ["Rare Summer Egg"],
+    "Rare": ["Rare Summer Egg", "Rare Egg"],
+    "Uncommon": ["Uncommon Egg"],
     "Mythical": ["Mythical Egg", "Paradise Egg"],
-    "Divine": ["Bug Egg"]
+    "Divine": ["Bug Egg"],
+    "Legendary": ["Legendary Egg"]
+}
+COSMETICS_RARITY = {
+    "Common": [
+        "Brick Stack", "Compost Bin", "Log", "Wood Pile", "Torch",
+        "Small Circle Tile", "Medium Circle Tile", "Small Path Tile",
+        "Medium Path Tile", "Large Path Tile", "Rock Pile", "Red Pottery",
+        "White Pottery", "Rake", "Orange Umbrella", "Yellow Umbrella",
+        "Honey Comb", "Fork Fence"
+        , "Shovel"
+    ],
+    "Uncommon": [
+        "Log Bench", "Brown Bench", "White Bench", "Hay Bale",
+        "Small Stone Pad", "Large Stone Pad", "Small Stone Table",
+        "Medium Stone Table", "Long Stone Table", "Wood Fence",
+        "Small Wood Flooring", "Medium Wood Flooring", "Large Wood Flooring",
+        "Mini TV", "Viney Beam", "Light On Ground", "Water Trough",
+        "Shovel Grave", "Small Stone Lantern", "Bookshelf", "Axe Stump", "Stone Lantern"
+    ],
+    "Rare": [
+        "Sign Crate", "Small Wood Table", "Brown Stone Pillar", "Wheelbarrow",
+        "Grey Stone Pillar", "Dark Stone Pillar", "Large Wood Table",
+        "Curved Canopy", "Flat Canopy", "Campfire", "Cooking Pot",
+        "Clothesline", "Small Wood Arbour", "Square Metal Arbour",
+        "Bird Bath", "Lamp Post", "Metal Wind Chime", "Bamboo Wind Chimes",
+        "Honey Torch", "Bee Chair", "Blue Cooler Chest", "Red Cooler Chest",
+        "Pink Cooler Chest", "Red Hammock", "Blue Hammock", "Zen Sand",
+        "Griffin Statue", "Bouncy Mushroom", "Beanstalk Painting"
+    ],
+    "Legendary": [
+        "Frog Fountain", "Brown Well", "Red Well", "Blue Well",
+        "Ring Walkway", "Viney Ring Walkway", "Red Tractor",
+        "Green Tractor", "Large Wood Arbour", "Round Metal Arbour",
+        "Honey Walkway", "Cabana", "Mower", "Beach Crate"
+    ],
+    "Mythical": [
+        "Lemonade Stand", "Market Cart", "Tiki Bar", "Pretzel Cart",
+        "Can Of Beans"
+    ],
+    "Divine": [
+        "Hot Spring"
+    ],
+    "Prismatic": [
+        "Pancake Stack"
+    ]
+}
+HONEY_RARITY = {
+    "Common": [
+        "Common Gnome Crate"
+    ],
+    "Rare": [
+        "Farmers Gnome Crate"
+    ],
+    "Legendary": [
+        "Classic Gnome Crate"
+    ],
+    "Mythical": [
+        "Iconic Gnome Crate"
+    ]
 }
 
 # =======================
@@ -138,7 +198,10 @@ async def fetch_and_format(session: aiohttp.ClientSession) -> str:
                         category = get_category(name, GEAR_RARITY)
                     elif key.lower() == "eggs":
                         category = get_category(name, EGG_RARITY)
-
+                    elif key.lower() == "cosmetics":
+                        category = get_category(name, COSMETICS_RARITY)
+                    elif key.lower() == "honey":
+                        category = get_category(name, HONEY_RARITY)
                     emoji = RARITY_EMOJI.get(category, "❓")
                     lines.append(f"{name} : {qty} ({category}) {emoji}")
 
