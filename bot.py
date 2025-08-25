@@ -95,17 +95,20 @@ COSMETICS_RARITY = {
 }
 HONEY_RARITY = {
     "Common": [
-        "Common Gnome Crate"
+        "Common Gnome Crate", "Common Summer Egg", "Bee Egg"
     ],
     "Rare": [
-        "Farmers Gnome Crate"
+        "Farmers Gnome Crate", "Cauliflower", "Flower Seed Pack"
     ],
     "Legendary": [
-        "Classic Gnome Crate"
+        "Classic Gnome Crate", "Rafflesia", "Green Apple", "Avocado", "Banana", "Bee Crate"
     ],
     "Mythical": [
-        "Iconic Gnome Crate"
-    ]
+        "Iconic Gnome Crate", "Pineapple", "Kiwi", "Bell Pepper", "Prickly Pear"
+    ],
+    "Divine": [
+        "Hot Spring", "Loquat", "Feijoa", "Pitcher Plant"
+    ],
 }
 
 # =======================
